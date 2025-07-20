@@ -1,8 +1,8 @@
 ---
 title: Increase Score
-date: 2025-07-20
+date: 2025-07-21
 author: Your Name
-cell_count: 7
+cell_count: 9
 score: 5
 ---
 
@@ -47,6 +47,16 @@ plt.xlabel("Step")
 plt.ylabel("Score")
 plt.grid()
 plt.show()
+```
+
+
+```python
+
+```
+
+
+```python
+
 ```
 
 
