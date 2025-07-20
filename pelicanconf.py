@@ -12,7 +12,7 @@ LINKS = (
 
 # Social widget
 SOCIAL = (
-    ("GitHub", "https://github.com/Pooja86321/"),
+    ("GitHub", "https://github.com/Pooja86321"),
     ("LinkedIn", "<linkedin handle>"),
 )
 
