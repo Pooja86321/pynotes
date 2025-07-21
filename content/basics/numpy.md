@@ -1,5 +1,5 @@
 ---
-title: Dt
+title: Numpy
 date: 2025-07-21
 author: Your Name
 cell_count: 237

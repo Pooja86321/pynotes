@@ -2,8 +2,8 @@
 title: Data Analysis
 date: 2025-07-21
 author: Your Name
-cell_count: 26
-score: 25
+cell_count: 20
+score: 20
 ---
 
 ```python
@@ -11,36 +11,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
 ```
 
 
@@ -180,4 +150,4 @@ plt.show()
 
 
 ---
-**Score: 25**
+**Score: 20**
