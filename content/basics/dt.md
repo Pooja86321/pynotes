@@ -2,8 +2,8 @@
 title: Dt
 date: 2025-07-21
 author: Your Name
-cell_count: 184
-score: 180
+cell_count: 237
+score: 235
 ---
 
 ```python
@@ -944,22 +944,399 @@ print(np.setdiff1d(a, b))
 
 
 ```python
-
+print(np.setxor1d(a, b))
 ```
 
 
 ```python
-
+unique, counts = np.unique(a, return_counts=True)
+print(dict(zip(unique, counts)))
 ```
 
 
 ```python
-
+print(set(a) == set(b))
 ```
 
 
 ```python
+print(np.asarray(list(set(a))))
+```
 
+
+```python
+arr2d = np.array([[1, 2], [1, 2], [3, 4]])
+print(np.unique(arr2d, axis=0))
+```
+
+
+```python
+data = np.random.randint(0, 10, 100)
+hist, bins = np.histogram(data, bins=5)
+print(hist)
+print(bins)
+```
+
+
+```python
+print(np.digitize([1, 2, 6], bins=[0, 3, 6]))
+```
+
+
+```python
+print(np.histogram(data, bins=[0, 3, 6, 10]))
+(array([30, 21, 49]), array([ 0,  3,  6, 10]))
+hist, bins = np.histogram(data, bins=5, density=True)
+print(hist)
+```
+
+
+```python
+hist, bihist, bins = np.histogram(data, bins=5)
+cumsum = np.cumsum(hist)
+```
+
+
+```python
+print(cumsum)ns = np.histogram(data, bins=5)
+cumsum = np.cumsum(hist)
+```
+
+
+```python
+print(cumsum)hist, bins = np.histogram(data, bins=5)
+cumsum = np.cumsum(hist)
+print(cumsum)
+```
+
+
+```python
+x = np.random.rand(100)
+y = np.random.rand(100)
+H, xedges, yedges = np.histogram2d(x, y, bins=5)
+print(H)
+```
+
+
+```python
+print(hist.flatten())
+```
+
+
+```python
+values = np.array([0, 1, 1, 3, 4, 4, 4])
+print(np.bincount(values))
+```
+
+
+```python
+weights = np.ones_like(values)
+print(np.bincount(values, weights=weights))
+```
+
+
+```python
+bins = [0, 1, 2, 3, 4, 5]
+print(np.digitize([0.5, 2.2, 3.9], bins))
+```
+
+
+```python
+x = np.array([1, 2, 3])
+y = np.array([4, 5])
+X, Y = np.meshgrid(x, y)
+print(X)
+print(Y)
+```
+
+
+```python
+X, Y = np.meshgrid(np.linspace(-1, 1, 5), np.linspace(-1, 1, 5))
+Z = X**2 + Y**2
+print(Z)
+```
+
+
+```python
+i, j = np.indices((2, 3))
+print(i)
+print(j)
+```
+
+
+```python
+og = np.ogrid[0:3, 0:2]
+print(og[0])
+print(og[1])
+```
+
+
+```python
+mg = np.mgrid[0:3, 0:2]
+print(mg)
+```
+
+
+```python
+x = np.linspace(0, 1, 3)
+y = np.linspace(0, 1, 3)
+z = np.linspace(0, 1, 3)
+X, Y, Z = np.meshgrid(x, y, z)
+print(X.shape)
+```
+
+
+```python
+xi, yi = np.meshgrid([1, 2], [3, 4], indexing='ij')
+print(xi)
+print(yi)
+```
+
+
+```python
+x = [1, 2]
+y = [3, 4]
+X, Y = np.meshgrid(x, y)
+print(np.array([X.ravel(), Y.ravel()]).T)
+```
+
+
+```python
+r = np.linspace(0, 1, 5)
+theta = np.linspace(0, 2 * np.pi, 5)
+R, T = np.meshgrid(r, theta)
+print(R)
+print(T)
+```
+
+
+```python
+phi = np.linspace(0, np.pi, 3)
+theta = np.linspace(0, 2 * np.pi, 4)
+PHI, THETA = np.meshgrid(phi, theta)
+print(PHI)
+print(THETA)
+```
+
+
+```python
+dt = np.dtype([('name', 'U10'), ('age', 'i4')])
+people = np.array([('Alice', 25), ('Bob', 30)], dtype=dt)
+print(people)
+```
+
+
+```python
+print(people['name'])
+```
+
+
+```python
+sorted_people = np.sort(people, order='age')
+print(sorted_people)
+```
+
+
+```python
+print(people[people['age'] > 25])
+```
+
+
+```python
+print(people[people['age'] > 25])
+```
+
+
+```python
+new = np.array([('Charlie', 22)], dtype=dt)
+people = np.concatenate((people, new))
+print(people)
+```
+
+
+```python
+dt_nested = np.dtype([('coords', [('x', 'f4'), ('y', 'f4')]), ('value', 'i4')])
+data = np.array([((1.0, 2.0), 10)], dtype=dt_nested)
+print(data)
+```
+
+
+```python
+print(people[['name', 'age']])
+```
+
+
+```python
+import numpy.ma as ma
+data = ma.array([1, 2, 3], mask=[0, 1, 0])
+print(data)
+```
+
+
+```python
+print(data.mask)
+```
+
+
+```python
+print(data.mean())
+```
+
+
+```python
+print(data.filled(-1))
+```
+
+
+```python
+masked = ma.masked_equal([1, -99, 3], -99)
+print(masked)
+```
+
+
+```python
+x = np.array([1, 2, 3, 4])
+masked = ma.masked_where(x > 2, x)
+print(masked)
+```
+
+
+```python
+a = ma.masked_less([1, 2, 3], 2)
+b = ma.masked_greater([1, 2, 3], 2)
+combined = ma.mask_or(a.mask, b.mask)
+print(combined)
+```
+
+
+```python
+print(data.compressed())
+```
+
+
+```python
+print(ma.std(masked))
+```
+
+
+```python
+matrix = np.array([[1, 2], [3, 4]])
+row = np.array([10, 20])
+print(matrix + row)
+```
+
+
+```python
+col = np.array([[1], [2]])
+print(matrix - col)
+```
+
+
+```python
+a = np.array([1, 2])
+b = np.array([3, 4])
+print(np.outer(a, b))
+```
+
+
+```python
+arr = np.array([1, 2, 3])
+print(arr[:, None] + arr)
+```
+
+
+```python
+m = np.array([[1, 2], [3, 4]])
+norms = np.linalg.norm(m, axis=1, keepdims=True)
+print(m / norms)
+```
+
+
+```python
+x = np.array([1, 2, 3])
+y = 2
+print(x == y)
+```
+
+
+```python
+a = np.ones((3, 3))
+b = np.array([1, 2, 3])
+print(a * b[:, np.newaxis])
+```
+
+
+```python
+dates = np.array(['2025-06-01', '2025-06-10'], dtype='datetime64[D]')
+print(dates)
+```
+
+
+```python
+print(np.arange('2025-01', '2025-04', dtype='datetime64[M]'))
+```
+
+
+```python
+print(dates + np.timedelta64(5, 'D'))
+```
+
+
+```python
+print(dates[1] - dates[0])
+```
+
+
+```python
+9 days
+```
+
+
+```python
+delta = np.array(['2025-06-10'], dtype='datetime64[D]') - np.array(['2025-06-01'], dtype='datetime64[D]')
+print(delta.astype(int))
+```
+
+
+```python
+print(np.datetime64('today', 'D'))
+2025-06-29
+print(np.arange('2025-01', '2026-01', dtype='datetime64[M]'))
+['2025-01' '2025-02' '2025-03' '2025-04' '2025-05' '2025-06' '2025-07'
+ '2025-08' '2025-09' '2025-10' '2025-11' '2025-12']
+months = np.arange('2025-01', '2025-04', dtype='datetime64[M]')
+print(np.diff(months))
+[1 1]
+x = np.arange(1000000)
+print(x * 2)
+[      0       2       4 ... 1999994 1999996 1999998]
+arr = np.array([1, 2, 3])
+print(np.where(arr > 2, 100, 0))
+[  0   0 100]
+arr = np.arange(10)
+view = arr.view()
+print(view.base is arr) 
+True
+a = np.array([1, 2, 3])
+b = a.view()
+b[0] = 100
+print(a)
+[100   2   3]
+x = np.arange(1000000)
+print(x[::100])
+[     0    100    200 ... 999700 999800 999900]
+x = np.array([1, 2, 3])
+x *= 2
+print(x)
+[2 4 6]
+x = np.array([1.0, 2.0, 3.0])
+y = np.empty_like(x)
+np.add(x, x, out=y)
+print(y)
+[2. 4. 6.]
+a = np.array([1.00001, 1.00002])
+b = np.array([1.00002, 1.00001])
+print(np.allclose(a, b, atol=1e-4))
 ```
 
 
@@ -1014,4 +1391,4 @@ print(np.setdiff1d(a, b))
 
 
 ---
-**Score: 180**
+**Score: 235**
