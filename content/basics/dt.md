@@ -1302,86 +1302,67 @@ print(delta.astype(int))
 print(np.datetime64('today', 'D'))
 2025-06-29
 print(np.arange('2025-01', '2026-01', dtype='datetime64[M]'))
-['2025-01' '2025-02' '2025-03' '2025-04' '2025-05' '2025-06' '2025-07'
- '2025-08' '2025-09' '2025-10' '2025-11' '2025-12']
+```
+
+
+```python
 months = np.arange('2025-01', '2025-04', dtype='datetime64[M]')
 print(np.diff(months))
-[1 1]
+```
+
+
+```python
 x = np.arange(1000000)
 print(x * 2)
-[      0       2       4 ... 1999994 1999996 1999998]
+```
+
+
+```python
 arr = np.array([1, 2, 3])
 print(np.where(arr > 2, 100, 0))
-[  0   0 100]
+```
+
+
+```python
 arr = np.arange(10)
 view = arr.view()
 print(view.base is arr) 
-True
+```
+
+
+```python
 a = np.array([1, 2, 3])
 b = a.view()
 b[0] = 100
 print(a)
-[100   2   3]
+```
+
+
+```python
 x = np.arange(1000000)
 print(x[::100])
-[     0    100    200 ... 999700 999800 999900]
+```
+
+
+```python
 x = np.array([1, 2, 3])
 x *= 2
 print(x)
-[2 4 6]
+```
+
+
+```python
 x = np.array([1.0, 2.0, 3.0])
 y = np.empty_like(x)
 np.add(x, x, out=y)
 print(y)
-[2. 4. 6.]
+```
+
+
+```python
 a = np.array([1.00001, 1.00002])
 b = np.array([1.00002, 1.00001])
 print(np.allclose(a, b, atol=1e-4))
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
 ```
 
 
